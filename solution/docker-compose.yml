@@ -1,0 +1,13 @@
+version: '2'
+services:
+  web:  
+   env_file:
+     - csvserver.env 
+   image: "infracloudio/csvserver"
+   container_name: csv_container  
+   tty: true
+   ports:
+     - "9393:9300"
+   volumes:
+     - /home/ubuntu/csvserver/inputdata:/csvserver/inputdata
+ 
