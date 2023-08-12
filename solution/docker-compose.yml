@@ -10,4 +10,13 @@ services:
      - "9393:9300"
    volumes:
      - /home/ubuntu/csvserver/inputdata:/csvserver/inputdata
+  
+  Prometheus:
+   image: "prom/prometheus:v2.22.0"
+   ports:
+    - "9090:9090"  
+   volumes: 
+     - /home/ubuntu/csvserver/prometheus:/etc/prometheus
+   command: --web.enable-lifecycle --config.file=/home/ubuntu/csvserver/prometheus/prometheus.yml
+       
  
